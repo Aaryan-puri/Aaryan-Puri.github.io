@@ -28,6 +28,7 @@
             <input type="tel" id="signupPhone" placeholder="Phone Number" required>
             <button onclick="signup()">Sign Up</button>
             <button class="toggle-button" onclick="toggleForm('login')">Already have an account? Login</button>
+            <p id="otpDisplay" style="color: red;"></p> <!-- Display OTP here -->
         </div>
     </div>
     <script>
@@ -56,13 +57,11 @@
             const email = document.getElementById('signupEmail').value;
             const phone = document.getElementById('signupPhone').value;
 
-            console.log('Signup name:', name);
-            console.log('Signup email:', email);
-            console.log('Signup phone:', phone);
-
             // Placeholder for OTP generation and sending logic
             const otp = Math.floor(100000 + Math.random() * 900000);
-            console.log('Generated OTP:', otp);
+
+            // Display the OTP on the page
+            document.getElementById('otpDisplay').textContent = 'Your OTP is: ' + otp;
 
             // Save OTP and user details
             sessionStorage.setItem('otp', otp);
@@ -70,8 +69,10 @@
             sessionStorage.setItem('phone', phone);
             sessionStorage.setItem('name', name);
 
-            // Redirect to OTP verification
-            window.location.href = 'verify.html';
+            // Redirect to OTP verification after a delay to simulate sending OTP
+            setTimeout(() => {
+                window.location.href = 'verify.html';
+            }, 5000); // 5-second delay
         }
 
         if (sessionStorage.getItem('loggedIn')) {
