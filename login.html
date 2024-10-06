@@ -3,29 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Puri's Network Solution</title>
+    <title>Login / Sign Up - Puri's Network Solution</title>
     <style>
         body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .login-container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .login-container input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-        .login-container button { padding: 10px; border: none; background: #003366; color: white; border-radius: 5px; cursor: pointer; width: 100%; }
+        .auth-container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .auth-container input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        .auth-container button { padding: 10px; border: none; background: #003366; color: white; border-radius: 5px; cursor: pointer; width: 100%; }
+        .toggle-button { background: none; border: none; color: #00509e; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
-        <button onclick="login()">Login</button>
+    <div class="auth-container">
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <button class="toggle-button" onclick="toggleForm('signup')">Don't have an account? Sign up</button>
+        </div>
+        <div id="signup-form" style="display:none;">
+            <h2>Sign Up</h2>
+            <input type="text" id="signupName" placeholder="Full Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="tel" id="signupPhone" placeholder="Phone Number" required>
+            <button onclick="signup()">Sign Up</button>
+            <button class="toggle-button" onclick="toggleForm('login')">Already have an account? Login</button>
+        </div>
     </div>
     <script>
+        function toggleForm(form) {
+            document.getElementById('login-form').style.display = form === 'login' ? 'block' : 'none';
+            document.getElementById('signup-form').style.display = form === 'signup' ? 'block' : 'none';
+        }
+
         function login() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
             // Placeholder for actual authentication logic
             const savedEmail = sessionStorage.getItem('email');
-            const savedPassword = sessionStorage.getItem('phone'); // Use phone as a password for demo purposes
+            const savedPassword = sessionStorage.getItem('phone'); // Using phone as password for demonstration
 
             if (email === savedEmail && password === savedPassword) {
                 sessionStorage.setItem('loggedIn', 'true');
@@ -35,7 +52,25 @@
             }
         }
 
-        // Redirect to login if not authenticated
+        function signup() {
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+
+            // Placeholder for OTP generation and sending logic
+            const otp = Math.floor(100000 + Math.random() * 900000);
+            console.log('Generated OTP:', otp);
+
+            // Save OTP and user details
+            sessionStorage.setItem('otp', otp);
+            sessionStorage.setItem('email', email);
+            sessionStorage.setItem('phone', phone);
+            sessionStorage.setItem('name', name);
+
+            // Redirect to OTP verification
+            window.location.href = 'verify.html';
+        }
+
         if (sessionStorage.getItem('loggedIn')) {
             window.location.href = 'index.html';
         }
