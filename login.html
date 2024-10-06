@@ -23,8 +23,11 @@
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             
+            console.log('Email:', email);
+            console.log('Password:', password);
+            
             // Placeholder for actual authentication logic
-            if (email === 'purisnetworksolution@gmail.com' && password === 'Chuchu@02') {
+            if (email === 'your-email@example.com' && password === 'your-password') {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
