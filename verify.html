@@ -18,11 +18,17 @@
         <button onclick="verifyOtp()">Verify</button>
     </div>
     <script>
-        function verifyOtp() {
+        async function verifyOtp() {
+            const email = sessionStorage.getItem('email');
             const userOtp = document.getElementById('otpInput').value;
-            const savedOtp = sessionStorage.getItem('otp');
 
-            if (userOtp === savedOtp) {
+            const response = await fetch('http://localhost:5000/verify-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, otp: userOtp })
+            });
+
+            if (response.ok) {
                 alert('OTP verified successfully!');
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
