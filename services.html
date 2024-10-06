@@ -16,20 +16,15 @@
         .section { margin: 40px 0; }
         .section h2 { color: #00509e; }
         .section p { color: #333; }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            nav a { display: block; margin: 10px 0; }
-            header, footer { padding: 15px 0; }
-        }
-
-        @media (max-width: 480px) {
-            .section h2 { font-size: 1.5em; }
-            .section p { font-size: 1em; }
-        }
     </style>
 </head>
 <body>
+    <script>
+        // Redirect to login if not authenticated
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'login.html';
+        }
+    </script>
     <header>
         <h1>Puri's Network Solution</h1>
     </header>
@@ -38,6 +33,7 @@
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+        <button onclick="logout()">Logout</button>
     </nav>
     <main class="container">
         <section id="services" class="section">
@@ -48,5 +44,11 @@
     <footer>
         <p>&copy; 2024 Puri's Network Solution. All rights reserved.</p>
     </footer>
+    <script>
+        function logout() {
+            sessionStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>
