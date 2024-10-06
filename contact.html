@@ -16,9 +16,9 @@
         .section { margin: 40px 0; }
         .section h2 { color: #00509e; }
         .section p { color: #333; }
-        .contact-form { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .contact-form { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; }
         .contact-form input, .contact-form textarea { width: calc(100% - 20px); padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-        .contact-form button { padding: 10px; border: none; background: #00509e; color: white; border-radius: 5px; cursor: pointer; }
+        .contact-form button { padding: 10px; border: none; background: #003366; color: white; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -38,12 +38,11 @@
             <p>Email: purisnetworksolution@gmail.com</p>
             <p>Address: 6 No. Puliya, Nehrugram, Dehradun, Uttarakhand, 248005</p>
             <div class="contact-form">
-                <h3>Get in Touch</h3>
-                <form action="mailto:purisnetworksolution@gmail.com" method="post" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send</button>
+                <form action="https://your-secure-url.com/contact" method="post">
+                    <input type="text" id="contactName" name="name" placeholder="Full Name" required>
+                    <input type="email" id="contactEmail" name="email" placeholder="Email" required>
+                    <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
                 </form>
             </div>
         </section>
