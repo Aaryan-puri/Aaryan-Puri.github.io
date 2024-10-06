@@ -25,9 +25,13 @@
             
             console.log('Email:', email);
             console.log('Password:', password);
+
+            // Replace these with your actual credentials for testing
+            const testEmail = 'ssoftware@gmail.com';
+            const testPassword = 'Chuchu@02';
             
             // Placeholder for actual authentication logic
-            if (email === 'ssoftware@gmail.com' && password === 'Chuchu@02') {
+            if (email === testEmail && password === testPassword) {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
