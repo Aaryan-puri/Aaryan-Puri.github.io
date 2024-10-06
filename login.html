@@ -22,16 +22,12 @@
         function login() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-            
-            console.log('Email:', email);
-            console.log('Password:', password);
 
-            // Replace these with your actual credentials for testing
-            const testEmail = 'ssoftware@gmail.com';
-            const testPassword = 'Chuchu@02';
-            
             // Placeholder for actual authentication logic
-            if (email === testEmail && password === testPassword) {
+            const savedEmail = sessionStorage.getItem('email');
+            const savedPassword = sessionStorage.getItem('phone'); // Use phone as a password for demo purposes
+
+            if (email === savedEmail && password === savedPassword) {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index.html';
             } else {
@@ -40,8 +36,8 @@
         }
 
         // Redirect to login if not authenticated
-        if (!sessionStorage.getItem('loggedIn')) {
-            window.location.href = 'login.html';
+        if (sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'index.html';
         }
     </script>
 </body>
