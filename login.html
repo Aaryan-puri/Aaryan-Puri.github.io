@@ -29,7 +29,7 @@
             <input type="password" id="signupPassword" placeholder="Create Password" required>
             <button onclick="signup()">Sign Up</button>
             <button class="toggle-button" onclick="toggleForm('login')">Already have an account? Login</button>
-            <p id="otpDisplay" style="color: red;"></p>
+            <p id="otpDisplay" style="color: red;"></p> <!-- Display OTP here -->
         </div>
     </div>
     <script>
@@ -70,7 +70,7 @@
 
             if (response.ok) {
                 alert('OTP sent to your email');
-                sessionStorage.setItem('email', email);  // Save email to sessionStorage
+                sessionStorage.setItem('email', email); // Save email to sessionStorage
                 window.location.href = 'verify.html';
             } else {
                 const error = await response.text();
