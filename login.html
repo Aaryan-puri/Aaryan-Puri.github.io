@@ -23,7 +23,7 @@
         </div>
         <div id="signup-form">
             <h2>Sign Up / Login</h2>
-            <form id="signupForm" action="https://formspree.io/f/mlderldd" method="POST">
+            <form id="signupForm">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -34,14 +34,12 @@
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
-            const form = event.target;
 
-            // Capture form data
+            const form = event.target;
             const formData = new FormData(form);
 
-            // Send form data to Formspree
-            fetch(form.action, {
-                method: form.method,
+            fetch('https://formspree.io/f/mlderldd', {
+                method: 'POST',
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
