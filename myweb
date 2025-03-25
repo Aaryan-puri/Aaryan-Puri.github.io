@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Updates & SOP Videos</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ff9800;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .updates, .troubleshooting {
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .card {
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      border-color: #ff9800;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      padding: 15px;
+      text-align: center;
+      color: #777;
+    }
+
+    footer a {
+      color: #ff9800;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daily Updates & SOP Videos</h1>
+    <nav>
+      <a href="#updates">Updates</a>
+      <a href="#videos">Troubleshooting Videos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="updates" class="updates">
+    <h2>Daily Updates</h2>
+    <div class="card">
+      <h3>Update 1</h3>
+      <p>Today, we released a new feature for faster troubleshooting. Check it out!</p>
+    </div>
+    <div class="card">
+      <h3>Update 2</h3>
+      <p>Here’s a quick tip on resolving network issues effectively.</p>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>Troubleshooting SOP Videos</h2>
+    <video controls width="600">
+      <source src="C:\Users\BLA-BLA-BLA\Videos\SS.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <footer>
+    <p>Created with ❤️ | <a href="#contact">Contact Us</a></p>
+  </footer>
+</body>
+</html>
