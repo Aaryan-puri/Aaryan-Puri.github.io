@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
@@ -26,41 +26,45 @@
 
         <div class="notes-section">
             <h2>Windows Feature Notes</h2>
-            <div class="screens">
-                <div class="screen" id="screen1">Note will appear here...</div>
-                <div class="screen" id="screen2">Note will appear here...</div>
-                <div class="screen" id="screen3">Note will appear here...</div>
+            <div class="blackboards">
+                <div class="blackboard" id="blackboard1">Loading notes...</div>
+                <div class="blackboard" id="blackboard2">Loading notes...</div>
+                <div class="blackboard" id="blackboard3">Loading notes...</div>
+            </div>
+            <div class="person-animation">
+                <div class="person"></div>
             </div>
         </div>
 
         <footer>
             <p>© 2025 Your Portal | All Rights Reserved</p>
         </footer>
+
+        <script>
+            // Array of 1000 notes
+            const notes = Array.from({ length: 1000 }, (_, i) => `Note ${i + 1}: Interesting Windows feature or fact #${i + 1}.`);
+
+            // Shuffle notes array (optional for random order)
+            notes.sort(() => Math.random() - 0.5);
+
+            let index1 = 0, index2 = 333, index3 = 666; // Start indexes for the three blackboards
+
+            function updateBlackboards() {
+                document.getElementById("blackboard1").textContent = notes[index1];
+                document.getElementById("blackboard2").textContent = notes[index2];
+                document.getElementById("blackboard3").textContent = notes[index3];
+
+                index1 = (index1 + 1) % notes.length;
+                index2 = (index2 + 1) % notes.length;
+                index3 = (index3 + 1) % notes.length;
+            }
+
+            // Update notes every 30 seconds
+            setInterval(updateBlackboards, 30000);
+
+            // Initialize notes on page load
+            updateBlackboards();
+        </script>
     </div>
-
-    <script>
-        // Array of notes for each screen
-        const notesScreen1 = ["Windows 11 Tip: Use Snap Layouts for better multitasking.", "Ctrl + Shift + S: Take screenshots quickly.", "Try Virtual Desktops for separate workspaces."];
-        const notesScreen2 = ["Windows Update: Keep your system secure.", "Use Task Manager (Ctrl + Shift + Esc) to manage apps.", "Explore Windows Security settings for antivirus tools."];
-        const notesScreen3 = ["Personalize your desktop with themes.", "File Explorer: Manage your files efficiently.", "Search with Cortana for quick answers."];
-
-        let index1 = 0, index2 = 0, index3 = 0;
-
-        function updateScreens() {
-            document.getElementById("screen1").textContent = notesScreen1[index1];
-            document.getElementById("screen2").textContent = notesScreen2[index2];
-            document.getElementById("screen3").textContent = notesScreen3[index3];
-
-            index1 = (index1 + 1) % notesScreen1.length;
-            index2 = (index2 + 1) % notesScreen2.length;
-            index3 = (index3 + 1) % notesScreen3.length;
-        }
-
-        // Change notes every 30 seconds
-        setInterval(updateScreens, 30000);
-
-        // Initialize notes on page load
-        updateScreens();
-    </script>
 </body>
 </html>
