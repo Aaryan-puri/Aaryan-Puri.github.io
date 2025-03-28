@@ -9,7 +9,7 @@
 <body class="dark-theme">
     <div class="container">
         <header>
-            <h1>Login</h1>
+            <h1>Login to Your Portal</h1>
         </header>
 
         <div class="login-form">
@@ -24,9 +24,43 @@
             </form>
         </div>
 
+        <div class="notes-section">
+            <h2>Windows Feature Notes</h2>
+            <div class="screens">
+                <div class="screen" id="screen1">Note will appear here...</div>
+                <div class="screen" id="screen2">Note will appear here...</div>
+                <div class="screen" id="screen3">Note will appear here...</div>
+            </div>
+        </div>
+
         <footer>
             <p>© 2025 Your Portal | All Rights Reserved</p>
         </footer>
     </div>
+
+    <script>
+        // Array of notes for each screen
+        const notesScreen1 = ["Windows 11 Tip: Use Snap Layouts for better multitasking.", "Ctrl + Shift + S: Take screenshots quickly.", "Try Virtual Desktops for separate workspaces."];
+        const notesScreen2 = ["Windows Update: Keep your system secure.", "Use Task Manager (Ctrl + Shift + Esc) to manage apps.", "Explore Windows Security settings for antivirus tools."];
+        const notesScreen3 = ["Personalize your desktop with themes.", "File Explorer: Manage your files efficiently.", "Search with Cortana for quick answers."];
+
+        let index1 = 0, index2 = 0, index3 = 0;
+
+        function updateScreens() {
+            document.getElementById("screen1").textContent = notesScreen1[index1];
+            document.getElementById("screen2").textContent = notesScreen2[index2];
+            document.getElementById("screen3").textContent = notesScreen3[index3];
+
+            index1 = (index1 + 1) % notesScreen1.length;
+            index2 = (index2 + 1) % notesScreen2.length;
+            index3 = (index3 + 1) % notesScreen3.length;
+        }
+
+        // Change notes every 30 seconds
+        setInterval(updateScreens, 30000);
+
+        // Initialize notes on page load
+        updateScreens();
+    </script>
 </body>
 </html>
